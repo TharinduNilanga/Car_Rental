@@ -20,18 +20,13 @@ import javax.persistence.Lob;
 @Entity
 public class Customer {
     @Id
-    private String cusId;
-    private String userName;
     private String eMail;
+    private String userName;
     private String password;
     private String nic;
-    @Lob
-    private byte[] nicImg;
-
+    private String nicImg;
     private String licenseNo;
-    @Lob
-    private byte[] licenseImg;
-
+    private String licenseImg;
     private String address;
     private String contact;
 

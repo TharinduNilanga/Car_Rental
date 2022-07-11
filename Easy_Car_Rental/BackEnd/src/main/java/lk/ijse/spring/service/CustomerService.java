@@ -9,9 +9,10 @@ import java.util.List;
  * @created 7/10/2022
  */
 public interface CustomerService {
-    String generateCustomerId();
+    /*String generateCustomerId();*/
     void saveCustomer(CustomerDTO dto);
     void updateCustomer(CustomerDTO dto);
+    void deleteCustomer(String id);
     CustomerDTO searchCustomer(String id);
     List<CustomerDTO> getAllCustomer();
 
