@@ -19,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages = "lk.ijse.spring")
 public class WebAppConfig implements WebMvcConfigurer {
 
+    @Bean
     public ModelMapper modelMapper(){
         return new ModelMapper();
     }

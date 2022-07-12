@@ -24,7 +24,7 @@ import java.net.URISyntaxException;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+     CustomerService customerService;
 
 
     @ResponseStatus(HttpStatus.CREATED)
