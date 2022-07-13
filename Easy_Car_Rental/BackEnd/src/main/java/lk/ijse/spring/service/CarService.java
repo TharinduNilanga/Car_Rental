@@ -10,8 +10,8 @@ import java.util.List;
  */
 public interface CarService {
     void saveCar(CarDTO dto);
-    void deleteCar(String id);
+    void deleteCar(String regNo);
     void updateCar(CarDTO dto);
-    CarDTO searchCar(String id);
+    CarDTO searchCar(String regNo);
     List<CarDTO> getAllCars();
 }

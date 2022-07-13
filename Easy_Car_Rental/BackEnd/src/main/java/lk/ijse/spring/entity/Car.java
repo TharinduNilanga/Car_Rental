@@ -33,7 +33,7 @@ public class Car {
     private double extraKmPrice;
     private String color;
 
-    @OneToMany(mappedBy = "regNo",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "car",cascade = CascadeType.ALL)
     private List<CarDetails> carDetails;
 
 

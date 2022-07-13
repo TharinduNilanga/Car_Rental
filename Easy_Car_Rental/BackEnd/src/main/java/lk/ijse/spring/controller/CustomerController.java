@@ -29,20 +29,23 @@ public class CustomerController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil save(@RequestBody CustomerDTO dto){
-        MultipartFile nicFile = saveAnUpdateFileForNic(dto);
-        MultipartFile licenseFile= saveAnUpdateFileForLicense(dto);
-        dto.setNicImgFile("uploads/"+nicFile.getOriginalFilename());
-        dto.setLicenseImgFile("uploads/"+licenseFile.getOriginalFilename());
-
+    public ResponseUtil save(@ModelAttribute CustomerDTO dto,@RequestPart("nicImg")MultipartFile nicImg,@RequestPart("licImg") MultipartFile licImg){
+        MultipartFile nic = saveAnUpdateFile(nicImg);
+        MultipartFile lic = saveAnUpdateFile(licImg);
+        dto.setNicImg(nic.getOriginalFilename());
+        dto.setLicenseImg(lic.getOriginalFilename());
         customerService.saveCustomer(dto);
         return new ResponseUtil(200,"Customer Saved successfully....!",dto);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil update(@RequestBody CustomerDTO dto){
+    public ResponseUtil update(@ModelAttribute CustomerDTO dto,@RequestPart("nicImg")MultipartFile nicImg,@RequestPart("licImg") MultipartFile licImg){
+        MultipartFile nic = saveAnUpdateFile(nicImg);
+        MultipartFile lic = saveAnUpdateFile(licImg);
+        dto.setNicImg(nic.getOriginalFilename());
+        dto.setLicenseImg(lic.getOriginalFilename());
         customerService.updateCustomer(dto);
-        return new ResponseUtil(200,"Customer Updated Successfully...!",dto);
+        return new ResponseUtil(200,"Customer update successfully....!",dto);
     }
 
     @DeleteMapping(params = {"eMail"},produces = MediaType.APPLICATION_JSON_VALUE)
@@ -51,20 +54,20 @@ public class CustomerController {
         return new ResponseUtil(200,"Customer Deleted Successfully...!",null);
     }
 
-    @GetMapping(params = {"eMail"},produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "search",params = {"eMail"},produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil search(@RequestParam String eMail){
         return new ResponseUtil(200,"Customer Searched Successfully...!",customerService.searchCustomer(eMail));
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "getALl",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAll(){
         return new ResponseUtil(200,"Getting Data SuccessFull...!",customerService.getAllCustomer());
     }
 
 
 
-    private MultipartFile saveAnUpdateFileForNic(CustomerDTO dto){
-        MultipartFile file = (MultipartFile) dto.getNicImgFile();
+    private MultipartFile saveAnUpdateFile(MultipartFile file1){
+        MultipartFile file = file1;
 
 
         try {
@@ -78,19 +81,5 @@ public class CustomerController {
         }
         return file;
     }
-    private MultipartFile saveAnUpdateFileForLicense(CustomerDTO dto){
-        MultipartFile file = (MultipartFile) dto.getLicenseImgFile();
 
-
-        try {
-            String projectPath=new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
-            File uploadDir = new File(projectPath + "/uploads");
-            uploadDir.mkdir();
-
-            file.transferTo(new File(uploadDir.getAbsolutePath()+"/"+file.getOriginalFilename()));
-        } catch (URISyntaxException | IOException e) {
-            e.printStackTrace();
-        }
-        return file;
-    }
 }

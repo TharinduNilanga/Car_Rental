@@ -1,0 +1,11 @@
+package lk.ijse.spring.repo;
+
+import lk.ijse.spring.entity.Admin;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ * @author Tharindu Nilanga
+ * @created 7/13/2022
+ */
+public interface AdminRepo extends JpaRepository<Admin,String> {
+}
