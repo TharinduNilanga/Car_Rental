@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.Part;
 import javax.xml.ws.Response;
 import java.io.File;
 import java.io.IOException;
@@ -28,14 +29,48 @@ public class CustomerController {
 
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil save(@ModelAttribute CustomerDTO dto,@RequestPart("nicImg")MultipartFile nicImg,@RequestPart("licImg") MultipartFile licImg){
-        MultipartFile nic = saveAnUpdateFile(nicImg);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil save(@RequestPart("dto") CustomerDTO dto,@RequestPart("nicImg") MultipartFile nicImg,@RequestPart("licImg") MultipartFile licImg
+    ){
+       /* MultipartFile nic = saveAnUpdateFile(nicImg);
         MultipartFile lic = saveAnUpdateFile(licImg);
         dto.setNicImg(nic.getOriginalFilename());
         dto.setLicenseImg(lic.getOriginalFilename());
         customerService.saveCustomer(dto);
         return new ResponseUtil(200,"Customer Saved successfully....!",dto);
+*/
+        System.out.println(dto.toString());
+        System.out.println(nicImg.getOriginalFilename());
+       System.out.println(licImg.getOriginalFilename());
+        System.out.println("////////////***");
+        try {
+            String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+            File uploadsDir = new File(projectPath + "/uploads");
+            System.out.println(projectPath);
+            uploadsDir.mkdir();
+            nicImg.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + nicImg.getOriginalFilename()));
+            licImg.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + licImg.getOriginalFilename()));
+
+            dto.setNicImg("uploads/"+nicImg.getOriginalFilename());
+            dto.setLicenseImg("uploads/"+licImg.getOriginalFilename());
+            //save the path of the uploaded image in the temporary database
+            //allImages.add("uploads/" + myFile.getOriginalFilename());
+            customerService.saveCustomer(dto);
+            System.out.println(dto.toString());
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+        /*System.out.println(nicImg.getOriginalFilename());*/
+//        System.out.println(dto.toString());
+//       // System.out.println(dto.getNicImg());
+//        System.out.println("IMG");
+//        System.out.println(nicImg.getOriginalFilename());
+//        System.out.println(licImg.getOriginalFilename());
+//        System.out.println("/////////////////////////////////");
+//        dto.setNicImg(nicImg.getOriginalFilename());
+//        dto.setLicenseImg(licImg.getOriginalFilename());
+//        System.out.println(dto.toString());
+        return  new ResponseUtil(200,"saved Customer",null);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -59,7 +94,7 @@ public class CustomerController {
         return new ResponseUtil(200,"Customer Searched Successfully...!",customerService.searchCustomer(eMail));
     }
 
-    @GetMapping(path = "getALl",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "getAll",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAll(){
         return new ResponseUtil(200,"Getting Data SuccessFull...!",customerService.getAllCustomer());
     }

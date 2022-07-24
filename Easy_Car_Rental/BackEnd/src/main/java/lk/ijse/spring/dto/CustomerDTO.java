@@ -25,7 +25,7 @@ public class CustomerDTO {
     private String licenseImg;
     private String address;
     private String contact;
-    private Object nicImgFile;
-    private Object licenseImgFile;
+//    private Object nicImgFile;
+//    private Object licenseImgFile;
 //https://wireframe.cc/SR85eK
 }

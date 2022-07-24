@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * @created 7/13/2022
  */
 @RestController
-@RequestMapping("rentals/admin")
+@RequestMapping("rental/admin")
 @CrossOrigin
 public class AdminController {
     @Autowired
@@ -44,6 +44,7 @@ public class AdminController {
 
     @GetMapping(path = "getAll",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAll(){
+        System.out.println("ok get");
         return new ResponseUtil(200,"success",adminService.getAllAdmins());
     }
 }
