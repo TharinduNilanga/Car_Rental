@@ -253,17 +253,46 @@
             /*position: relative;*/
             /*width: 60%;*/
             /*height: 100%;*/
-            background-color: #415660;
+
         }
         #adminAddRent{
             width: 100%;
             height: 92vh;
-            background-color: #146c43;
+
         }
         #adminAddRentBody{
             width: 101.6%;
             height: 100%;
-            background-color: #cfe2ff;
+
+        }
+        #adminAddReturn{
+            width: 100%;
+            height: 92vh;
+            overflow-y: hidden;!important;
+        }
+        #adminDetails{
+            width: 100%;
+            height: 92vh;
+            overflow: hidden;!important;
+        }
+        #adminCar{
+            width: 100%;
+            height: 92vh;
+        }
+        #adminMaintenance{
+            width: 100%;
+            height: 92vh;
+
+        }
+        #adminCustomerDetails{
+            width: 100%;
+            height: 92vh;
+            background-color: #badbcc;
+        }
+        #Driver{
+            width: 100%;
+            height: 92vh;
+            background-color: #badbcc;
         }
 
 
@@ -272,7 +301,6 @@
 </head>
 <body>
 <header>
-<!--
     <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #26759B ;display: none" id="navbarheader">
         <div class="container-fluid">
             <img class="pic" src="assets/images/car-rent.png" alt="">
@@ -286,7 +314,7 @@
                         <a class="nav-link fw-bold"    style="color: #F7FF03!important;" id="rentNav" aria-current="page" href="#">Rent</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold "   style="color: #F7FF03!important;" id="carNav" aria-current="page" href="#">Cars</a>
+                        <a class="nav-link fw-bold "   style="color: #F7FF03!important;" id="customercarNav" aria-current="page" href="#">Cars</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold "   style="color: #F7FF03!important;" id="detailsNav" href="#">Details</a>
@@ -295,12 +323,11 @@
                 </ul>
 
             </div>
-            <label  style="margin-right: 10px ; font-weight: bold;color: #cfe2ff" id="CustomerLabel">abcd5@gmail.com</label>
-            <a href="#" id="loginNav"><img id="logOut" style="width: 40px;height: 40px" src="assets/images/logout.png" alt=""></a>
+            <label  style="margin-right: 10px ; font-weight: bold;color: #cfe2ff" id="CusLabel">abcd5@gmail.com</label>
+            <a href="#" id="CustomerloginNav"><img id="CustomerlogOut" style="width: 40px;height: 40px" src="assets/images/logout.png" alt=""></a>
         </div>
     </nav>
--->
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #26759B ;display: block" id="navbarheader1">
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #26759B ;display: none" id="navbarheader1">
         <div class="container-fluid">
             <img class="pic" src="assets/images/car-rent.png" alt="">
             <a class="navbar-brand text-success fw-bold" style="color: white!important;" href="#">.  EASY CAR RENTAL</a>
@@ -314,9 +341,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold "   style="color: #F7FF03!important; text-decoration: underline" id="addRetutnNav" aria-current="page" href="#">Add Return Rents</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold "   style="color: #F7FF03!important; text-decoration: underline" id="RequestNav" href="#">Rent Requests</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold "   style="color: #F7FF03!important; text-decoration: underline" id="detailNav" href="#">Details</a>
@@ -338,6 +362,22 @@
             <a href="#" id="loginNav"><img id="logOut" style="width: 40px;height: 40px" src="assets/images/logout.png" alt=""></a>
         </div>
     </nav>
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #26759B ;display: block" id="navbarheader2">
+        <div class="container-fluid">
+            <img class="pic" src="assets/images/car-rent.png" alt="">
+            <a class="navbar-brand text-success fw-bold" style="color: white!important;" href="#">.  EASY CAR RENTAL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText2">
+
+
+            </div>
+            <label  style="margin-right: 10px ; font-weight: bold;color: #cfe2ff" id="DriverLabel">abcd5@gmail.com</label>
+            <a href="#" id="DriverNav"><img id="DriverlogOut" style="width: 40px;height: 40px" src="assets/images/logout.png" alt=""></a>
+        </div>
+    </nav>
+
 </header>
 <main>
     <section class="container-fluid " style="display: none"   id="DashBoard">
@@ -750,20 +790,18 @@
 
     </section>
     <!--///////////////////////////////////////-->
-
-    <!--///////////////////////////////////////-->
-    <section class="container-fluid" id="adminAddRent">
+    <section class="container-fluid"  style="display: none" id="adminAddRent">
         <div class="row" id="adminAddRentBody">
-            <div class="col-7 " style="background-color: #146c43">
+            <div class="col-7 "  style="border: 4px solid black">
                 <div
                    class="row"
                    id="addminRent"
-                   style="width: 103%;height: 40%;background-color: #cfe2ff"
+                   style="width: 103%;height: 40%;border: 4px solid black"
                 >
                     <div style="width: 100%;height: 5%">
                         <h1 class="fw-bold text-decoration-underline" style="font-size: 20px;margin-top: 10px">Rent Request</h1>
                     </div>
-                    <div class="row  justify-content-center " style="height:80%" id="tableRequestRent" >
+                    <div class="row  justify-content-center " style="height:75%" id="tableRequestRent" >
 
                         <div style="height:100%;width: 95%;overflow: scroll;position: relative;border: unset;margin-top:20px;margin-left: 10px">
                             <table class="table table-bordered border-dark table-light" id="tblRequestRent" >
@@ -771,8 +809,6 @@
                                 <tr>
                                     <th scope="col">Request Id</th>
                                     <th scope="col">Customer</th>
-
-
                                 </tr>
                                 </thead>
                                 <tbody id="tblRequestRentBody">
@@ -784,7 +820,7 @@
                 </div>
                 <div class="row"
                    id="addminRentDetails"
-                   style="width: 103%;height: 60%;background-color: #0dcaf0"
+                   style="width: 103%;height: 60%;border: 4px solid black"
                 >
                     <div class="row" style="width: 100%;height: 5%">
                         <input style="width: 30%;height: 40px;border-radius: 5px;margin-left: 10px" class="form-control form-control-sm mt-3 fw-bold" id="txtSearchRequest" name="txtSearchRequest" placeholder="Enter Request Id" type="text">
@@ -818,19 +854,480 @@
 
                 </div>
             </div>
-            <div class="col-5" style="background-color: #343a40">
-                
+            <div class="col-5 justify-content-center" style="border: 4px solid black" >
+                <div class="row justify-content-center" style="width: 103.7%;height: 50%">
+                    <div class="col-6 " style="border: 4px solid black"  >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtRentId" placeholder="Rent Id" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtcusId" placeholder="Customer" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtCarRegNo" placeholder="Car" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtPDate" placeholder="PickUp Date" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtPTime" placeholder="pickUpTime" type="text" >
+
+                    </div>
+                    <div class="col-6" style="border: 4px solid black" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtRentReturnDate" placeholder="Return Date" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtRentReturnTime" placeholder="Return Time" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtRentLDW" placeholder="LossDamage Wavier" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtEmail" id="txtRentDriver" placeholder="Driver" type="text" >
+                        <div class="row">
+                            <button type="button"  class="btn btn-primary mt-4   " style="width: 30%;height:60%;margin-left: 30px;border-radius: 2px;color: white" id="btnsaveRent">Save</button>
+                            <button type="button"  class="btn btn-primary mt-4  " style="width: 30%;height:60%;margin-left: 30px;background-color: green;color: white" id="btnUpdateRent">Update</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="width: 103.6%;height: 50%" >
+                    <div class="row" style="width: 100%;height: 1%">
+                        <input style="width: 30%;height: 40px;border-radius: 5px;margin-left: 10px" class="form-control form-control-sm mt-1 fw-bold" id="txtSearchRent" name="txtSearchRequest" placeholder="Enter Request Id" type="text">
+                        <button type="button"  class="btn btn-primary mt-1 btn-success  " style="width:15%;height:40px;border-radius: 2px;color: white" id="btnSearchRent">Search</button>
+
+                    </div>
+                    <div class="row  justify-content-center " style="height: 80%" id="tableRents" >
+                        <div style="height:100%;width: 102%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                            <table class="table table-bordered border-dark table-light" id="tblRents" >
+                                <thead>
+                                <tr>
+                                    <th scope="col">Rent Id</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">car</th>
+                                    <th scope="col">PickUp Date</th>
+                                    <th scope="col">PickUp Time</th>
+                                    <th scope="col">Return Date</th>
+                                    <th scope="col">Return Time</th>
+                                    <th scope="col">LDW</th>
+                                    <th scope="col">Driver</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblRentsBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
     </section>
     <!--///////////////////////////////////////-->
-    <section class="container-fluid" id=""></section>
+    <section class="container-fluid" style="display: none" id="adminAddReturn">
+        <div class="row" style="width: 101.6%;height: 100%">
+            <div class="col-6" >
+                <div class="row justify-content-center" style="width: 103%;height: 60%;border: 3px solid black">
+                    <div class="row" style="width: 100%;height: 1%">
+                        <input style="width: 30%;height: 40px;border-radius: 5px;margin-left: 10px" class="form-control form-control-sm mt-1 fw-bold" id="txtSearchRentByCustomer" name="txtSearchRequest" placeholder="Enter Customer Rent Id" type="text">
+                        <button type="button"  class="btn btn-primary mt-1 btn-success  " style="width:15%;height:40px;border-radius: 2px;color: white" id="btnSearchRentByCustomer">Search</button>
+                    </div>
+                    <div class="row  justify-content-center mt-3" style="height: 80%" id="tableRentDetails" >
+                        <div style="height:100%;width: 102%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                            <table class="table table-bordered border-dark table-light" id="tblRentDetails" >
+                                <thead>
+                                <tr>
+                                    <th scope="col">Rent Id</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">car</th>
+                                    <th scope="col">PickUp Date</th>
+                                    <th scope="col">PickUp Time</th>
+                                    <th scope="col">Return Date</th>
+                                    <th scope="col">Return Time</th>
+                                    <th scope="col">LDW</th>
+                                    <th scope="col">Driver</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblRentDetailsBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center" style="width: 103%;height: 40%;border: 3px solid black;background-color: darkgrey">
+                    <div class="row justify-content-center" style="width: 104%;height: 33.3%">
+                        <div class="col-6 justify-content-center" >
+                            <h3 class="mt-4 fw-bold" >Loss Damage Wavier  :</h3>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="mt-4 fw-bold" style="color:red;margin-left: -80px ">12000.00/=</h3>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 103%;height: 33.3%">
+                        <div class="col-6 justify-content-center" >
+                            <h3 class="mt-4    fw-bold" > Damages :</h3>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="mt-4 fw-bold" style="color:red;margin-left: -220px ">12000.00/=</h3>
+                        </div>
+                    </div>
+                    <div class="row" style="width: 103%;height: 33.3%">
+                        <div class="col-6 justify-content-center" >
+                            <h3 class="mt-4 fw-bold" >Total Payment :</h3>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="mt-4 fw-bold" style="color:red;margin-left: -150px ">12000.00/=</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6"  >
+                <div class="row justify-content-center" style="width: 103%;height: 45%;border: 2px solid black">
+                    <div class="col-6 " >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtRetId" id="txtRetId" placeholder="Return Id" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtRentalId" id="txtRentalId" placeholder="Rental Id" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtReturnCusId" id="txtReturnCusId" placeholder="Customer Id" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtReturnLossDamageWavier" id="txtReturnLossDamageWavier" placeholder="Loss Damage Wavier" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtKm" id="txtKm" placeholder="Drive Km" type="text" >
+
+                    </div>
+                    <div class="col-6" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtDamages" id="txtDamages" placeholder="Damages" type="text" >
+                        <input style="width: 80%;height: 10%;border-radius: 5px" class="form-control form-control-sm mt-4 fw-bold" name="txtTotalPayment" id="txtTotalPayment" placeholder="Total Payment" type="text" >
+                        <div class="row mt-5">
+                            <button type="button"  class="btn btn-primary mt-4   " style="width: 30%;height:60%;margin-left: 2px;border-radius: 2px;color: white" id="btnSaveReturn">Save</button>
+                            <button type="button"  class="btn btn-primary mt-4  " style="width: 30%;height:60%;margin-left: 10px;background-color: green;color: white" id="btnUpdateReturn">Update</button>
+                            <button type="button"  class="btn btn-danger mt-4   " style="width: 30%;height:60%;margin-left: 10px;border-radius: 2px;color: white" id="btnDeleteReturn">Save</button>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="width: 103%;height: 55%;border: 2px solid black">
+                    <div class="row" style="width: 100%;height: 1%">
+                        <input style="width: 30%;height: 40px;border-radius: 5px;margin-left: 10px" class="form-control form-control-sm mt-2 fw-bold" id="txtSearchReturn" name="txtSearchReturn" placeholder="Enter Return Id" type="text">
+                        <button type="button"  class="btn btn-primary mt-2 btn-success  " style="width:15%;height:40px;border-radius: 2px;color: white" id="btnSearchReturn">Search</button>
+                    </div>
+                    <div class="row  justify-content-center mt-3" style="height: 80%" id="tableReturn" >
+                        <div style="height:100%;width: 102%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                            <table class="table table-bordered border-dark table-light" id="tblReturn" >
+                                <thead>
+                                <tr>
+                                    <th scope="col">Return Id</th>
+                                    <th scope="col">Rental Id</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">L.D.W</th>
+                                    <th scope="col">Drive Km</th>
+                                    <th scope="col">Damages</th>
+                                    <th scope="col">Total Payment</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblReturnBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
     <!--///////////////////////////////////////-->
-    <section class="container-fluid" id=""></section>
+    <section class="container-fluid" style="display: none"  id="adminDetails">
+        <div class="row" style="width:101.6%;height: 100%;">
+            <div class="col-6 " style="background-color: white">
+                <div class="row justify-content-center align-content-center" style="width: 103.3%;height: 50%;border: 2px solid black">
+                    <div style="width:70%;height: 80%;background-color: #E0E1E7;border: 1px solid black ;border-radius: 10px;margin-left: 10px">
+                        <label class="fw-bold" style="font-size: 20px;color:black" >Admin</label>
+                        <input style="width:50%;height: 10%;border-radius: 10px;" class="form-control form-control-sm mt-xl-2 fw-bold" name="txtAdminEmail"  id="txtAdminEmail" placeholder="Admin E-mail" type="text" >
+                        <input style="width:50%;height: 10%;border-radius: 10px" class="form-control form-control-sm mt-xl-5 fw-bold" name="txtAdminUserName"  id="txtAdminUserName" placeholder="Admin User Name" type="text" >
+                        <input style="width:50%;height: 10%;border-radius: 10px" class="form-control form-control-sm mt-xl-5 fw-bold" name="txtAdminPassword"  id="txtAdminPassword" placeholder="Admin Password" type="password" >
+                        <button  style="color: white;margin-top: -350px;margin-left: 65%;width: 20%;height:20%;border-radius: 10px; " class="btn btn-primary  "  id="btnSaveAdmin">Save</button>
+                        <button  style="color: white;margin-top: -250px;margin-left: 65%;width: 20%;height:20%;border-radius: 10px; " class="btn btn-success  "  id="btnUpdateAdmin">Update</button>
+                        <button  style="color: white;margin-top: -150px;margin-left: 65%;width: 20%;height:20%;border-radius: 10px; " class="btn btn-danger  "  id="btnDeleteAdmin">Delete</button>
+                    </div>
+                </div>
+                <div class="row" style="width: 103.3%;height: 50%;border: 2px solid black">
+                    <div class="row  justify-content-center mt-3" style="height: 80%" id="tableAdmin" >
+                        <div style="height:100%;width: 102%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                            <table class="table table-bordered border-dark table-light" id="tblAdmin" >
+                                <thead>
+                                <tr>
+                                    <th scope="col">Admin Email</th>
+                                    <th scope="col">Admin User Name</th>
+                                    <th scope="col">Password</th>
+
+                                </tr>
+                                </thead>
+                                <tbody id="tblAdminBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6" style="">
+                <div class="row justify-content-center  align-content-center" style="width: 103.3%;height: 50%;border: 2px solid black">
+                    <div style="width:70%;height: 80%;background-color: #E0E1E7;border: 1px solid black ;border-radius: 10px;margin-left: 10px">
+                        <label class="fw-bold" style="font-size: 20px;color:black" >Driver</label>
+                        <input style="width:50%;height: 10%;border-radius: 10px" class="form-control form-control-sm  mt-1 fw-bold" name="txtDriverEmail"  id="txtDriverEmail" placeholder="Driver E-Mail" type="text" >
+                        <input style="width:50%;height: 10%;border-radius: 10px" class="form-control form-control-sm  mt-3 fw-bold" name="txtDriverName"  id="txtDriverName" placeholder="Driver Name" type="text" >
+                        <input style="width:50%;height: 10%;border-radius: 10px" class="form-control form-control-sm  mt-3 fw-bold" name="txtDriverAddress"  id="txtDriverAddress" placeholder="Driver Address" type="text" >
+                        <input style="width:50%;height: 10%;border-radius: 10px" class="form-control form-control-sm  mt-3 fw-bold" name="txtDriverContact"  id="txtDriverContact" placeholder="Driver Contact" type="text" >
+                        <input style="width:50%;height: 10%;border-radius: 10px" class="form-control form-control-sm  mt-3 fw-bold" name="txtDriverPassword"  id="txtDriverPassword" placeholder="Driver Password" type="password" >
+                        <button  style="color: white;margin-top: -400px;margin-left: 65%;width: 20%;height:20%;border-radius: 10px; " class="btn btn-primary  "  id="btnSaveDriver">Save</button>
+                        <button  style="color: white;margin-top: -300px;margin-left: 65%;width: 20%;height:20%;border-radius: 10px; " class="btn btn-success  "  id="btnUpdateDriver">Update</button>
+                        <button  style="color: white;margin-top: -200px;margin-left: 65%;width: 20%;height:20%;border-radius: 10px; " class="btn btn-danger  "  id="btnDeleteDriver">Delete</button>
+                    </div>
+                </div>
+                <div class="row" style="width: 103.3%;height: 50%;border: 2px solid black">
+                    <div class="row  justify-content-center mt-3" style="height: 80%" id="tableDriver" >
+                        <div style="height:100%;width: 102%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                            <table class="table table-bordered border-dark table-light" id="tblDriver" >
+                                <thead>
+                                <tr>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Contact</th>
+                                    <th scope="col">Password</th>
+
+                                </tr>
+                                </thead>
+                                <tbody id="tblDriverBody">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
     <!--///////////////////////////////////////-->
-    <section class="container-fluid" id=""></section>
+    <section class="container-fluid" style="display: none" id="adminCar">
+        <div class="row" id="adminCarForm" style="width: 101.6%;height: 60%;">
+            <div class="col-3 " style="border: 3px solid black" >
+                <div class="row " style="margin-left: 10px;">
+                <label class="fw-bold mt-3" style="color: black" for="txtCarRegisterNo">Enter Reg No :</label>
+                <input style="width: 70%;height: 10%" class="fw-bold" name="txtCarRegisterNo" id="txtCarRegisterNo" placeholder="enter Reg No" type="text">
+                <label class="fw-bold mt-2 " style="color: black;margin-left: 10px"  for="cmbCarbrand">Select Brand :</label>
+                <select style="width: 70%;height: 10%" name="cmbCarbrand" id="cmbCarbrand" ></select>
+                <label class="fw-bold mt-2 " style="color: black;margin-left: 10px"  for="cmbCarType">Select Type :</label>
+                <select style="width: 70%;height: 10%" name="cmbCarType" id="cmbCarType"></select>
+                <label class="fw-bold mt-2" style="color: black;margin-left: 10px" for="txtCarDrivedKm">Enter Drived Km :</label>
+                <input style="width: 70%;height: 10%" class="fw-bold" name="txtCarDrivedKm" id="txtCarDrivedKm" placeholder="enter drived Km" type="text">
+                <label class="fw-bold mt-2 " style="color: black;"  for="cmbCarPassenger">Select No Passenger :</label>
+                <select style="width: 70%;height: 10%" name="cmbCarPassenger" id="cmbCarPassenger"></select>
+                <label class="fw-bold mt-2 " style="color: black;margin-left: 10px"  for="cmbTransmission">Select Transmission :</label>
+                <select style="width: 70%;height: 10%" name="cmbTransmission" id="cmbTransmission"></select>
+                     </div>
+            </div>
+            <div class="col-3" style="border: 3px solid black">
+                <div class="row " style="margin-left: 10px">
+                <label  class="fw-bold mt-2 " style="color: black;"  for="cmbFuelType">Select Fuel Type :</label>
+                <select style="width: 70%;height: 10%" name="cmbFuelType" id="cmbFuelType"></select>
+                <label class="fw-bold mt-2" style="color: black;" for="txtDailyRate">Enter Daily Rate :</label>
+                <input style="width: 70%;height: 10%" class="fw-bold" name="txtDailyRate" id="txtDailyRate" placeholder="enter daily Rate" type="text">
+                <label class="fw-bold mt-2" style="color: black;" for="txtMonthlyRate">Enter Monthly Rate :</label>
+                <input style="width: 70%;height: 10%" class="fw-bold" name="txtMonthlyRate" id="txtMonthlyRate" placeholder="enter monthly Rate" type="text">
+                <label class="fw-bold mt-2" style="color: black;" for="txtMileagePrice">Enter Free Mileage Price :</label>
+                <input style="width: 70%;height: 10%" class="fw-bold" name="txtMileagePrice" id="txtMileagePrice" placeholder="enter Free Mileage Price" type="text">
+                <label class="fw-bold mt-2" style="color: black;" for="txtExtraKm">Extra Km Price :</label>
+                <input style="width: 70%;height: 10%" class="fw-bold" name="txtExtraKm" id="txtExtraKm" placeholder="enter Km Price" type="text">
+                <label class="fw-bold mt-2" style="color: black;" for="txtcarColor">Extra color :</label>
+                <input style="width: 70%;height: 10%" class="fw-bold" name="txtcarColor" id="txtcarColor" placeholder="enter color" type="text">
+                </div>
+            </div>
+            <div class="col-3"  style="border: 3px solid black">
+                <div class="row " style="margin-left: 10px">
+                    <label class="fw-bold mt-2" style="color: black;margin-left: 10px" for="img1">Image 1 :</label>
+                    <input style="width: 70%;height: 10%"  class="fw-bold" name="img1" id="img1" placeholder="enter color" type="file">
+                    <label  class="fw-bold mt-2" style="color: black;margin-left: 10px" for="img2">Image 2 :</label>
+                    <input style="width: 70%;height: 10%"  class="fw-bold" name="img2" id="img2" placeholder="enter color" type="file">
+                    <label class="fw-bold mt-2" style="color: black;margin-left: 10px" for="img3">Image 3 :</label>
+                    <input style="width: 70%;height: 10%"  class="fw-bold" name="img3" id="img3" placeholder="enter color" type="file">
+                    <label class="fw-bold mt-2" style="color: black;margin-left: 10px" for="img4">Image 4 :</label>
+                    <input style="width: 70%;height: 10%"  class="fw-bold" name="img4" id="img4" placeholder="enter color" type="file">
+
+                </div>
+            </div>
+            <div class="col-3" style="border: 3px solid black">
+                <div class="row  " style="margin-left: 10px">
+                <label class="fw-bold mt-5" style="color: black;" for="txtSearchAdminCar">Search :</label>
+                <input style="width: 70%;height: 10%"  class="fw-bold" name="txtSearchAdminCar" id="txtSearchAdminCar" placeholder="enter Reg No" type="text">
+                <button  style="color: white;width: 20%;height:10%;border-radius: 8px; " class="btn btn-success  "  id="btnSearchAdminCar">Search</button>
+
+
+                <button  style="color: white;width: 25%;height:20%;border-radius: 10px; margin-top: 50% " class="btn btn-primary fw-bold "  id="btnAddCar">Save</button>
+                <button  style="color: white;width: 25%;height:20%;border-radius: 10px; margin-top: 50%; margin-left:10px" class="btn btn-success fw-bold "  id="btnUpdateCar">Update</button>
+                <button  style="color: white;width: 25%;height:20%;border-radius: 10px; margin-top: 50%; margin-left:10px" class="btn btn-danger  fw-bold "  id="btnDeleteCar">Delete</button>
+
+                </div>
+            </div>
+
+         </div>
+        <div class="row" id="adminCarTable" style="width: 101.6%;height: 40%;">
+            <div class="row  justify-content-center " style="height: 80%" id="tableCars" >
+                <div style="height:100%;width: 100%;overflow: scroll;position: relative;border: unset;margin-top:30px;margin-left: 10px">
+                    <table class="table table-bordered border-dark table-light" id="tblCars" >
+                        <thead>
+                        <tr>
+                            <th scope="col">Reg No</th>
+                            <th scope="col">Brand</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Drived Km</th>
+                            <th scope="col">Passengers</th>
+                            <th scope="col">Transmission</th>
+                            <th scope="col">Fuel Type</th>
+                            <th scope="col">Daily Rate</th>
+                            <th scope="col">Monthly Rate</th>
+                            <th scope="col">Free Mileage Price</th>
+                            <th scope="col">Extra Km Price</th>
+                            <th scope="col">Color</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tblCarsBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
     <!--///////////////////////////////////////-->
+    <section class="container-fluid" style="display: none" id="adminMaintenance"   >
+        <div class="row " style=";height: 40%;border: 2px solid black">
+            <div class="col-3 " style="border: 2px solid black">
+                <div class="row mt-3" style="margin-left: 10px">
+                    <label class="fw-bold mt-2" style="color: black;font-size: 30px" >Maintenance</label>
+
+                    <label class="fw-bold mt-3" style="color: black;" for="txtMaintenanceId">Maintenance Id :</label>
+                    <input style="width: 70%;height: 10%"  class="fw-bold" name="txtMaintenanceId" id="txtMaintenanceId" placeholder="enter Reg No" type="text">
+                    <label class="fw-bold mt-2 " style="color: black;margin-left: 10px"  for="cmbCar">Select car :</label>
+                    <select style="width: 70%;height: 10%" name="cmbCar" id="cmbCar" ></select>
+                    <label class="fw-bold mt-2 " style="color: black;margin-left: 10px"  for="cmbRepairType">Select Reapir Type :</label>
+                    <select style="width: 70%;height: 10%" name="cmbRepairType" id="cmbRepairType" ></select>
+
+                </div>
+            </div>
+
+            <div class="col-9" style="border: 2px solid black" >
+                 <div class="row justify-content-center"  style="width: 90%;height: 1%">
+                               <input style="width: 30%;height: 40px;border-radius: 5px;margin-left: 10px" class="form-control form-control-sm mt-1 fw-bold" id="txtmainId" name="txtmainId" placeholder="Enter Maintenance Id" type="text">
+                               <button type="button"  class="btn btn-primary mt-1 btn-success  " style="width:15%;height:40px;border-radius: 2px;color: white;margin-left: 10px" id="btnSearchMaintenance">Search</button>
+
+                           </div>
+                <div class="row  justify-content-center mt-5 " style="height: 70%" id="tableMaintenance" >
+                    <div style="height:100%;width:90%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                        <table class="table table-bordered border-dark table-light" id="tblMaintenance" >
+                            <thead>
+                            <tr>
+                                <th scope="col">Rent Id</th>
+                                <th scope="col">car</th>
+                                <th scope="col">Repair Type</th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="tblMaintenanceBody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style=";height: 60%;border: 2px solid black">
+            <div class="row justify-content-center mt-5" style="width: 90%;height: 1%">
+                <input style="width: 20%;height: 40px;border-radius: 5px;margin-left: 10px" class="form-control form-control-sm mt-1 fw-bold" id="txtmainCarRegNo" name="txtmainCarRegNo" placeholder="Enter Maintenance Id" type="text">
+                <button type="button"  class="btn btn-primary mt-1 btn-success  " style="width:15%;height:40px;border-radius: 2px;color: white;margin-left: 10px" id="btnmainCarRegNo">Search</button>
+
+            </div>
+            <div class="row  justify-content-center mt-1 " style="height: 70%" id="tableCarDetails" >
+                <div style="height:100%;width: 90%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                    <table class="table table-bordered border-dark table-light" id="tblCarDetails" >
+                        <thead>
+                        <tr>
+                            <th scope="col">Reg No</th>
+                            <th scope="col">Image 1</th>
+                            <th scope="col">Image 2</th>
+                            <th scope="col">Image 3</th>
+                            <th scope="col">Image 4</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody id="tblCarDetailsBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--///////////////////////////////////////-->
+    <section class="container-fluid" style="display: none" id="adminCustomerDetails">
+        <div class="row" style="width: 101.6%;height: 100%;">
+            <div class="row justify-content-center mt-5"  style="width: 90%;height: 1%">
+                <input style="width: 30%;height: 40px;border-radius: 5px;margin-left: 10px" class="form-control form-control-sm mt-1 fw-bold" id="txtadminCusEmail" name="txtadminCusEmail" placeholder="Enter Customer Email" type="text">
+                <button type="button"  class="btn btn-primary mt-1 btn-success  " style="width:15%;height:40px;border-radius: 2px;color: white;margin-left: 10px" id="btnadminCusEmail">Search</button>
+
+            </div>
+            <div class="row  justify-content-center mt-5 " style="height: 70%" id="tableAdminCustomer" >
+                <div style="height:100%;width:90%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                    <table class="table table-bordered border-dark table-light" id="tblAdminCustomer" >
+                        <thead>
+                        <tr>
+
+                            <th scope="col">E-Mail</th>
+                            <th scope="col">UserName</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">NIC</th>
+                            <th scope="col">NIC Image</th>
+                            <th scope="col">License No</th>
+                            <th scope="col">License Image</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Contact</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="tblAdminCustomerBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!--///////////////////////////////////////-->
+    <section class="container-fluid" style="display: block" id="Driver">
+     
+        <div class="row"   style=";height:90%;">
+            <div class="row justify-content-start mt-5"  style="width: 90%;height: 1%">
+                <input style="width: 30%;height: 40px;border-radius: 5px;margin-left: 90px" class="form-control form-control-sm mt-1 fw-bold" id="txtdriverRent" name="txtdriverRent" placeholder="Enter Driver " type="text">
+                <button type="button"  class="btn btn-primary mt-1 btn-success  " style="width:15%;height:40px;border-radius: 2px;color: white;margin-left: 10px" id="btndriverRent">Search</button>
+
+            </div>
+            <div class="row  justify-content-center mt-5 " style="height: 70%" id="tableDriverRents" >
+                <div style="height:100%;width:90%;overflow: scroll;position: relative;border: unset;margin-top:15px;margin-left: 10px">
+                    <table class="table table-bordered border-dark table-light" id="tblDriverRents" >
+                        <thead>
+                        <tr>
+                            <th scope="col">Rent Id</th>
+                            <th scope="col">Customer</th>
+                            <th scope="col">car</th>
+                            <th scope="col">PickUp Date</th>
+                            <th scope="col">PickUp Time</th>
+                            <th scope="col">Return Date</th>
+                            <th scope="col">Return Time</th>
+                            <th scope="col">LDW</th>
+                            <th scope="col">Driver</th>
+
+                        </tr>
+                        </thead>
+                        <tbody id="tblDriverRentsrBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
 </main>

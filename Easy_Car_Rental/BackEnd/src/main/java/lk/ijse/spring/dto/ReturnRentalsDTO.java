@@ -26,7 +26,7 @@ public class ReturnRentalsDTO {
     private Customer customer;
     private double lossDamageWaiver;
     private String driveKm;
-    private String damages;
+   /***/ private String damages;
     private double totalPayment;
 
 }
