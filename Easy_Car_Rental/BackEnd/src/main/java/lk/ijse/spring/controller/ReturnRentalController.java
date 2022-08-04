@@ -22,6 +22,10 @@ public class ReturnRentalController {
     public ResponseUtil getAll(){
         return new ResponseUtil(200,"success",returnRentalService.getAllReturns());
     }
+    @GetMapping(path = "getDailyIncome",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getDailyIncome(){
+        return new ResponseUtil(200,"success",returnRentalService.dailyIncome());
+    }
 
 
     @GetMapping(path = "generateId",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -30,8 +34,9 @@ public class ReturnRentalController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil save(@ModelAttribute ReturnRentalsDTO dto){
-        returnRentalService.saveReturn(dto);
+    public ResponseUtil save(@RequestBody ReturnRentalsDTO dto){
+        System.out.println(dto);
+     returnRentalService.saveReturn(dto);
         return new ResponseUtil(200,"Return added successfully...",null);
     }
 

@@ -29,7 +29,7 @@ public class MaintenanceController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil save(@ModelAttribute MaintenanceDTO dto){
+    public ResponseUtil save(@RequestBody MaintenanceDTO dto){
         maintenanceService.saveMaintenance(dto);
         return new ResponseUtil(200,"Maintenance added successfully..",null);
     }

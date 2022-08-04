@@ -31,20 +31,11 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public String generateRentalId() {
-        PageRequest request = PageRequest.of(0, 1, Sort.by("renId").descending());
-        Rentals map = mapper.map(repo.findAll(request), Rentals.class);
-        if (map.getRenId() !=null){
-            int temp = Integer.parseInt(map.getRenId().split("-")[1]);
-            temp = temp + 1;
-            if (temp <= 9) {
-                return "REN-00" + temp;
-            } else if (temp <= 99) {
-
-                return "REN-0" + temp;
-            } else {
-                return "REN-" + temp;
-            }
-        } else {
+        if (repo.getId()!=null){
+            String id = repo.getId();
+            int newId = Integer.parseInt(id.replace("REN-", ""));
+            return String.format("REN-%03d",newId+1);
+        }else {
             return "REN-001";
         }
     }

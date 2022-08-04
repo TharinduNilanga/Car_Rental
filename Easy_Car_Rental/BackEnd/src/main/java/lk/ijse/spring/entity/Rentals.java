@@ -21,23 +21,26 @@ import java.time.LocalTime;
 public class Rentals {
     @Id
     private String renId;
-
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "cusEmail",referencedColumnName = "eMail",nullable = false)
-    private Customer customer;
-
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "regNo",referencedColumnName = "regNo",nullable = false)
-    private Car car;
-
+    private String cusEmail;
+    private String regNo;
     private LocalDate pickUpDate;
     private LocalTime pickUpTime;
     private LocalDate returnDate;
     private LocalTime returnTime;
     private String lossDamageWaiver;
+    private String driverEmail;
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "driverEmail",referencedColumnName = "driverEmail",insertable = false,updatable = false)
+    private Driver driver;
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "driverEmail",referencedColumnName = "driverEmail",nullable = false)
-    private Driver driver;
+    @JoinColumn(name = "cusEmail",referencedColumnName = "eMail",insertable = false,updatable = false)
+    private Customer customer;
+
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "regNo",referencedColumnName = "regNo",insertable = false,updatable = false)
+    private Car car;
+
 
 }

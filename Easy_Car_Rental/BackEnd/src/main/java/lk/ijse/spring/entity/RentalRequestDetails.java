@@ -29,7 +29,6 @@ public class RentalRequestDetails {
     private LocalDate returnDate;
     private LocalTime returnTime;
     private double lossDamageWaiver;
-    private String lossDamageWaiverSlip;
     private String driver;
 
     @ManyToOne

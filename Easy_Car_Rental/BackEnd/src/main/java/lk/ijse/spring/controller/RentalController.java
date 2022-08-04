@@ -29,8 +29,9 @@ public class RentalController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil save(@ModelAttribute RentalsDTO dto){
+    public ResponseUtil save(@RequestBody RentalsDTO dto){
         rentalService.saveRental(dto);
+        System.out.println(dto);
         return new ResponseUtil(200,"Rental added successfully...",null);
     }
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)

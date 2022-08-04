@@ -29,6 +29,7 @@ public class CustomerController {
 
 
     @ResponseStatus(HttpStatus.CREATED)
+
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil save(@RequestPart("dto") CustomerDTO dto,@RequestPart("nicImg") MultipartFile nicImg,@RequestPart("licImg") MultipartFile licImg
     ){
@@ -60,26 +61,30 @@ public class CustomerController {
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
         }
-        /*System.out.println(nicImg.getOriginalFilename());*/
-//        System.out.println(dto.toString());
-//       // System.out.println(dto.getNicImg());
-//        System.out.println("IMG");
-//        System.out.println(nicImg.getOriginalFilename());
-//        System.out.println(licImg.getOriginalFilename());
-//        System.out.println("/////////////////////////////////");
-//        dto.setNicImg(nicImg.getOriginalFilename());
-//        dto.setLicenseImg(licImg.getOriginalFilename());
-//        System.out.println(dto.toString());
+
         return  new ResponseUtil(200,"saved Customer",null);
     }
 
-    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil update(@ModelAttribute CustomerDTO dto,@RequestPart("nicImg")MultipartFile nicImg,@RequestPart("licImg") MultipartFile licImg){
-        MultipartFile nic = saveAnUpdateFile(nicImg);
-        MultipartFile lic = saveAnUpdateFile(licImg);
-        dto.setNicImg(nic.getOriginalFilename());
-        dto.setLicenseImg(lic.getOriginalFilename());
-        customerService.updateCustomer(dto);
+    @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil update(@RequestPart("dto") CustomerDTO dto,@RequestPart("nicImg")MultipartFile nicImg,@RequestPart("licImg") MultipartFile licImg){
+        try {
+            String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+            File uploadsDir = new File(projectPath + "/uploads");
+            System.out.println(projectPath);
+            uploadsDir.mkdir();
+            nicImg.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + nicImg.getOriginalFilename()));
+            licImg.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + licImg.getOriginalFilename()));
+
+            dto.setNicImg("uploads/"+nicImg.getOriginalFilename());
+            dto.setLicenseImg("uploads/"+licImg.getOriginalFilename());
+            //save the path of the uploaded image in the temporary database
+            //allImages.add("uploads/" + myFile.getOriginalFilename());
+            customerService.updateCustomer(dto);
+            System.out.println(dto.toString());
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+
         return new ResponseUtil(200,"Customer update successfully....!",dto);
     }
 

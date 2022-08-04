@@ -3,6 +3,7 @@ package lk.ijse.spring.service.impl;
 import lk.ijse.spring.dto.RentalRequestDTO;
 import lk.ijse.spring.entity.Maintenance;
 import lk.ijse.spring.entity.RentalRequest;
+import lk.ijse.spring.entity.Rentals;
 import lk.ijse.spring.repo.RentalRequestDetailsRepo;
 import lk.ijse.spring.repo.RentalRequestRepo;
 import lk.ijse.spring.service.RentalRequestService;
@@ -25,7 +26,7 @@ import java.util.List;
 public class RentalRequestServiceImpl implements RentalRequestService {
 
     @Autowired
-    private RentalRequestRepo  repo;
+    private RentalRequestRepo repo;
 
     @Autowired
     private RentalRequestDetailsRepo detailsRepo;
@@ -36,8 +37,8 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
     @Override
     public String generateRequestId() {
-        PageRequest request = PageRequest.of(0, 1, Sort.by("reqId").descending());
-        RentalRequest map = mapper.map(repo.findAll(request), RentalRequest.class);
+      /*  RentalRequest map = mapper.map(repo.findAll(request), RentalRequest.class);
+        System.out.println(map.getReqId());
         if (map.getReqId() !=null){
             int temp = Integer.parseInt(map.getReqId().split("-")[1]);
             temp = temp + 1;
@@ -51,7 +52,15 @@ public class RentalRequestServiceImpl implements RentalRequestService {
             }
         } else {
             return "REQ-001";
+        }*/
+        if (repo.getId()!=null){
+            String id = repo.getId();
+            int newId = Integer.parseInt(id.replace("REQ-", ""));
+            return String.format("REQ-%03d",newId+1);
+        }else {
+            return "REQ-001";
         }
+
     }
 
     @Override
@@ -70,7 +79,6 @@ public class RentalRequestServiceImpl implements RentalRequestService {
             if (repo.existsById(dto.getReqId())){
                 RentalRequest request = mapper.map(dto, RentalRequest.class);
                 if (dto.getRentalRequestDetails().size()<1)throw new RuntimeException("No cars added.....!");
-
                 repo.deleteById(dto.getReqId());
                 repo.save(request);
             }else {
@@ -81,6 +89,7 @@ public class RentalRequestServiceImpl implements RentalRequestService {
     @Override
     public void deleteRequest(String id) {
         if (repo.existsById(id)){
+           // detailsRepo.deleteById(id);
             repo.deleteById(id);
         }else {
             throw new RuntimeException("delete failed ....!"+id+" not exists....!");

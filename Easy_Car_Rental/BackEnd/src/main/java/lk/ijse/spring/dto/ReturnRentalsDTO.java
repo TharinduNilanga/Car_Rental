@@ -22,11 +22,12 @@ import javax.persistence.OneToOne;
 @ToString
 public class ReturnRentalsDTO {
     private String retId;
-    private Rentals rentals;
-    private Customer customer;
+    private String renId;
+    private String cusEmail;
+    private String regNo;
     private double lossDamageWaiver;
     private String driveKm;
-   /***/ private String damages;
+    private double damages;
     private double totalPayment;
 
 }

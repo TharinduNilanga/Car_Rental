@@ -23,6 +23,7 @@ import java.util.List;
 @ToString
 public class RentalRequestDTO {
     private String reqId;
-    private Customer customer;
-    List<RentalRequestDetails> rentalRequestDetails;
+    private String cusEmail;
+    private String lossDamageWaiverSlip;
+    List<RentalRequestDetailsDTO> rentalRequestDetails;
 }

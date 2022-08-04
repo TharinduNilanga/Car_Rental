@@ -1,5 +1,6 @@
 package lk.ijse.spring.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lk.ijse.spring.entity.Car;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.entity.Driver;
@@ -24,12 +25,17 @@ import java.time.LocalTime;
 @ToString
 public class RentalsDTO {
     private String renId;
-    private Customer customer;
-    private Car car;
+    private String cusEmail;
+    private String regNo;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate pickUpDate;
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime pickUpTime;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate returnDate;
+    @JsonFormat(pattern = "HH:mm")
     private LocalTime returnTime;
     private String lossDamageWaiver;
-    private Driver driver;
+    private String driverEmail;
+
 }

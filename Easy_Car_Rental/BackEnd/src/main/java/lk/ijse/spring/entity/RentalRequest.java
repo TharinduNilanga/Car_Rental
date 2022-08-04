@@ -20,9 +20,11 @@ import java.util.List;
 public class RentalRequest {
     @Id
     private String reqId;
+    private String cusEmail;
+    private String lossDamageWaiverSlip;
 
     @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "cusEmail",referencedColumnName = "eMail",nullable = false)
+    @JoinColumn(name = "cusEmail",referencedColumnName = "eMail",insertable = false,updatable = false)
     private Customer customer;
 
     @OneToMany(mappedBy = "rentalRequest",cascade = CascadeType.ALL)

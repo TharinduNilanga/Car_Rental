@@ -14,7 +14,7 @@ import javax.print.attribute.standard.Media;
  * @created 7/14/2022
  */
 @RestController
-@RequestMapping("rentals/driver")
+@RequestMapping("rental/driver")
 @CrossOrigin
 public class DriverController {
     @Autowired
@@ -26,7 +26,7 @@ public class DriverController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil save(@ModelAttribute DriverDTO dto){
+    public ResponseUtil save(@RequestBody DriverDTO dto){
         driverService.saveDiver(dto);
         return new ResponseUtil(200,"Driver Added successfully...",null);
     }
@@ -43,7 +43,7 @@ public class DriverController {
         return new ResponseUtil(200,"Driver Deleted successfully..",null);
     }
 
-    @GetMapping(path = "getAll",params = {"driverEmail"},produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "search",params = {"driverEmail"},produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil search(@RequestParam String driverEmail){
         return new ResponseUtil(200,"success",driverService.searchDriver(driverEmail));
     }

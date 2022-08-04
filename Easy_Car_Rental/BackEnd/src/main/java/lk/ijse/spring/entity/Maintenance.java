@@ -19,10 +19,10 @@ import javax.persistence.*;
 public class Maintenance {
     @Id
     private String maiId;
-    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
-    @JoinColumn(name = "regNo",referencedColumnName = "regNo",nullable = false)
-    private Car car;
-
+    private String regNo;
     private String serviceType;
+    @ManyToOne(cascade = {CascadeType.REFRESH,CascadeType.DETACH})
+    @JoinColumn(name = "regNo",referencedColumnName = "regNo",insertable = false,updatable = false)
+    private Car car;
 
 }

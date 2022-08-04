@@ -20,6 +20,6 @@ import javax.persistence.ManyToOne;
 @ToString
 public class MaintenanceDTO {
     private String maiId;
-    private Car car;
+    private String regNo;
     private String serviceType;
 }

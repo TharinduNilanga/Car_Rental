@@ -31,19 +31,11 @@ public class MaintenanceServiceImpl implements MaintenanceService {
 
     @Override
     public String generateMaintenanceId() {
-        PageRequest request = PageRequest.of(0, 1, Sort.by("maiId").descending());
-        Maintenance map = mapper.map(repo.findAll(request), Maintenance.class);
-        if (map.getMaiId() !=null){
-            int temp = Integer.parseInt(map.getMaiId().split("-")[1]);
-            temp = temp + 1;
-            if (temp <= 9) {
-                return "MAI-00" + temp;
-            } else if (temp <= 99) {
-                return "MAI-0" + temp;
-            } else {
-                return "MAI-" + temp;
-            }
-        } else {
+        if (repo.getId()!=null){
+            String id = repo.getId();
+            int newId = Integer.parseInt(id.replace("MAI-", ""));
+            return String.format("MAI-%03d",newId+1);
+        }else {
             return "MAI-001";
         }
     }

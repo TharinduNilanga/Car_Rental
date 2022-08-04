@@ -19,8 +19,9 @@ public class AdminController {
     AdminService adminService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil save(@ModelAttribute AdminDTO dto){
+    public ResponseUtil save(@RequestBody AdminDTO dto){
         adminService.saveAdmin(dto);
+        System.out.println(dto);
         return new ResponseUtil(200,"Admin saved successfully...!",null);
     }
 
