@@ -146,9 +146,13 @@ function loadRents() {
                     alert(d)*/
                        alert((r.rentalRequestDetails[0].pickUpDate))
                     console.log(res.data)
-                    let rowNew = `<tr><td>`+r.rentalRequestDetails[0].reqId+`</td><td>`+r.rentalRequestDetails[0].regNo+`</td><td>`+r.rentalRequestDetails[0].pickUpDate+`</td><td>`+r.rentalRequestDetails[0].pickUpTime+`</td><td>`+r.rentalRequestDetails[0].returnDate+`</td><td>`+r.rentalRequestDetails[0].returnTime+`</td><td>`+r.rentalRequestDetails[0].lossDamageWaiver+`</td><td>`+r.rentalRequestDetails[0].driver+`</td></tr>`;
-                    $("#tblRequestRentDetailsBody").append(rowNew);
-                    settingRentalDetailsClickEvent();
+                    for (const rd of r.rentalRequestDetails)
+                    {
+                        let rowNew = `<tr><td>` + rd.reqId + `</td><td>` + rd.regNo + `</td><td>` + rd.pickUpDate + `</td><td>` + rd.pickUpTime + `</td><td>` + rd.returnDate + `</td><td>` + rd.returnTime + `</td><td>` + rd.lossDamageWaiver + `</td><td>` + rd.driver + `</td></tr>`;
+                        $("#tblRequestRentDetailsBody").append(rowNew);
+
+                        settingRentalDetailsClickEvent();
+                    }
 
                 }
 

@@ -26,6 +26,14 @@ public class ReturnRentalController {
     public ResponseUtil getDailyIncome(){
         return new ResponseUtil(200,"success",returnRentalService.dailyIncome());
     }
+    @GetMapping(path = "getMonthlyIncome",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getMonthlyIncome(){
+        return new ResponseUtil(200,"success",returnRentalService.MonthlyIncome());
+    }
+    @GetMapping(path = "getAnnualIncome",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAnnualIncome(){
+        return new ResponseUtil(200,"success",returnRentalService.AnnuallyIncome());
+    }
 
 
     @GetMapping(path = "generateId",produces = MediaType.APPLICATION_JSON_VALUE)

@@ -16,7 +16,7 @@ public interface ReturnRentalService {
     void deleteReturn(String retId);
     ReturnRentalsDTO searchReturn(String retId);
     List<ReturnRentalsDTO>  getAllReturns();
-    List<IncomeDTO> dailyIncome();
-    List<IncomeDTO> MonthlyIncome();
-    List<IncomeDTO> AnnuallyIncome();
+    List<Object> dailyIncome();
+    List<Object> MonthlyIncome();
+    List<Object> AnnuallyIncome();
 }

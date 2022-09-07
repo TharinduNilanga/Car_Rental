@@ -2,6 +2,7 @@ package lk.ijse.spring.service.impl;
 
 import lk.ijse.spring.dto.ReturnRentalsDTO;
 import lk.ijse.spring.entity.Car;
+import lk.ijse.spring.entity.Income;
 import lk.ijse.spring.entity.ReturnRentals;
 import lk.ijse.spring.repo.CarRepo;
 import lk.ijse.spring.repo.IncomeRepo;
@@ -11,9 +12,13 @@ import lk.ijse.spring.dto.IncomeDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -149,18 +154,33 @@ public class ReturnRentalServiceImpl implements ReturnRentalService {
     }
 
     @Override
-    public List<IncomeDTO> dailyIncome() {
+    public List<Object> dailyIncome() {
+      /* List<IncomeDTO> dto=new ArrayList<>();
+        List<Object[]> dailyIncome = incomeRepo.getDailyIncome();
+        for (Object[] objects : dailyIncome) {
+            dto.add(new IncomeDTO(String.valueOf(objects.get(1)),Double.parseDouble(String.valueOf(objects.get(2)))    ))
 
-        return mapper.map(incomeRepo.getMonthlyIncome(),new TypeToken<List<IncomeDTO>>(){}.getType());
+
+
+
+        }*/
+//        List<Object[]> incomeDTOS=incomeRepo.getDailyIncome();
+       /* List<Object[]> dailyIncome = incomeRepo.getDailyIncome();
+        HashSet<dailyIncome> objects = new HashSet<>();
+        return mapper.map(dailyIncome, (Type) IncomeDTO.class);*/
+        return mapper.map(incomeRepo.getDailyIncome(),new TypeToken<List<Object>>(){}.getType());
     }
 
     @Override
-    public List<IncomeDTO> MonthlyIncome() {
-        return null;
+    public List<Object> MonthlyIncome() {
+
+        return mapper.map(incomeRepo.getMonthlyIncome(),new TypeToken<List<Object>>(){}.getType());
     }
 
     @Override
-    public List<IncomeDTO> AnnuallyIncome() {
-        return null;
+    public List<Object> AnnuallyIncome() {
+
+
+        return mapper.map(incomeRepo.getAnnalIncome(),new TypeToken<List<Object>>(){}.getType());
     }
 }

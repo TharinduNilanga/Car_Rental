@@ -314,7 +314,7 @@
 </head>
 <body>
 <header>
-      <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #26759B ;display: block" id="navbarheader">
+      <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #26759B ;display: none" id="navbarheader">
         <div class="container-fluid">
             <img class="pic" src="assets/images/car-rent.png" alt="">
             <a class="navbar-brand text-success fw-bold" style="color: white!important;" href="#">.  EASY CAR RENTAL</a>
@@ -395,7 +395,7 @@
 </header>
 <main>
 
-    <section class="container-fluid  " style="display: none ;"   id="DashBoard">
+    <section class="container-fluid  " style="display: block ;"   id="DashBoard">
         <div class="row " id="headerDashBoard">
             <h1 style="font-family: 'Berlin Sans FB'"   >Welcome To Easy Car Rentals</h1>
             <button class="btn btn-success " id="btnLogIn">LogIn</button>
@@ -530,7 +530,7 @@
         </form>
     </section>
     <!--///////////////////////////////////////-->
-    <section class="container-fluid "  style="display: block" id="CustomerRent">
+    <section class="container-fluid "  style="display: none" id="CustomerRent">
         <div class="row" style="width: 101.6%;height: 101%;">
             <div class="row m-md-auto " style="width:101%;!important;height: 50%">
 
@@ -1294,7 +1294,6 @@
                         <table class="table table-bordered border-dark table-light" id="tblDailyIncome" >
                             <thead>
                             <tr>
-                                <th scope="col">Date</th>
                                 <th scope="col">Income</th>
                             </tr>
                             </thead>
@@ -1395,6 +1394,7 @@
 <script src="controller/AddRent.js"></script>
 <script src="controller/ReturnContoller.js"></script>
 <script src="controller/MaintenanceController.js"></script>
+<script src="controller/IncomeController.js"></script>
 <script src="controller/Driver.js"></script>
 <script src="js/util/AddToCart.js"></script>
 <script src="js/Nav.js"></script>

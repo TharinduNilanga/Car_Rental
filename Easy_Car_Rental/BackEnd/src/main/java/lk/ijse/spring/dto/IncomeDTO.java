@@ -1,9 +1,13 @@
 package lk.ijse.spring.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  * @author Tharindu Nilanga
@@ -14,6 +18,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class IncomeDTO {
-    private String date;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date date;
     private double total;
 }
